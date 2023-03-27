@@ -1,2 +1,4 @@
-package com.example.personal.service;public class StudentServiceImpl {
+package com.example.personal.service;
+
+public class StudentServiceImpl {
 }

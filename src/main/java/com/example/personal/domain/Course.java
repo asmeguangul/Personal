@@ -1,14 +1,18 @@
 package com.example.personal.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="courses")
+@Table(name="course")
+@Data
 public class Course {
 
     @Id
@@ -19,8 +23,10 @@ public class Course {
 
     private String courseDescription;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JsonProperty
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @JoinColumn(name = "studentId")
     private Student student;
-
 
 }

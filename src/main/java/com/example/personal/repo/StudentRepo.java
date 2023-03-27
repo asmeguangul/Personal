@@ -1,2 +1,9 @@
-package com.example.personal.repo;public interface StudentRepo {
+package com.example.personal.repo;
+
+import com.example.personal.domain.Student;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface StudentRepo extends JpaRepository<Student, Integer > {
 }

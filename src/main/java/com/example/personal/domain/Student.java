@@ -1,5 +1,6 @@
 package com.example.personal.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
@@ -27,7 +28,9 @@ public class Student {
     @Email
     private String email;
 
-    @OneToMany(mappedBy = "student")
+    @OneToMany
+    @JoinTable(name = "course_student", joinColumns = {@JoinColumn(name = "courseId")}, inverseJoinColumns = {@JoinColumn(name = "studentId")})
+    @JsonBackReference
     private List<Course> courses;
 
 
