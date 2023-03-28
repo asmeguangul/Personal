@@ -12,4 +12,6 @@ public interface CourseService {
     public Course addCourse(Course course);
 
     public List<Course> findAll();
+
+    public void removeCourse(int courseId);
 }

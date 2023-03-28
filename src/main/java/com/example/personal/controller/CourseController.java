@@ -33,5 +33,9 @@ public class CourseController {
     public List<Course> findAllCourseByCourseId(@PathVariable int studentId){
         return courseService.findCourseByStudentId(studentId);
     }
-
+      @DeleteMapping("/{courseId}")
+    public void deleteCourseByCourseId(@PathVariable int    courseId){
+        courseService.removeCourse(courseId);
+          System.out.println("course dleleted");
+      }
 }
