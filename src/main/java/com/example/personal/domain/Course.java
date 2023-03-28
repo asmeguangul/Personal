@@ -23,7 +23,7 @@ public class Course {
 
     private String courseDescription;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(optional = true)
     @JsonProperty
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @JoinColumn(name = "studentId")

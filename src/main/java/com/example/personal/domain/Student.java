@@ -19,6 +19,7 @@ import java.util.List;
 public class Student {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
@@ -28,11 +29,10 @@ public class Student {
     @Email
     private String email;
 
-    @OneToMany
+    @OneToMany(cascade  = CascadeType.ALL, orphanRemoval = true)
     @JoinTable(name = "course_student", joinColumns = {@JoinColumn(name = "courseId")}, inverseJoinColumns = {@JoinColumn(name = "studentId")})
     @JsonBackReference
+
     private List<Course> courses;
-
-
 
 }

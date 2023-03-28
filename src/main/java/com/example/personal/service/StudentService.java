@@ -1,8 +1,18 @@
 package com.example.personal.service;
 
-import org.springframework.stereotype.Service;
+import com.example.personal.domain.Student;
 
-@Service
+import java.util.List;
+
+
 public interface StudentService {
+
+    public List<Student> getStudentList();
+
+    public Student getStudentById(int studentId);
+
+    public void removeStudent(int studentId);
+
+    public Student addStudent(Student student);
 
 }
